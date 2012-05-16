@@ -17,6 +17,12 @@
       ["SELECT * FROM testing"]
       (into [] rows))))
 
+(defn adhoc-data [db query]
+  (sql/with-connection db
+    (sql/with-query-results rows
+      [query]
+      (into [] rows))))
+
 (defn insert-data [db data]
   (sql/with-connection db
     (sql/insert-records :testing {:data data})))
