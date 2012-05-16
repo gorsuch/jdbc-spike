@@ -1,7 +1,7 @@
 (ns jdbc-spike.core
   (:require [clojure.java.jdbc :as sql]))
 
-(def db (or (System/getenv "DATABASE_URL") "postgres://localhost/mgorsuch"))
+(def db (or (System/getenv "DATABASE_URL") "postgres://localhost/jdbc-spike"))
 
 (defn migrate [db]
   (sql/with-connection db
